@@ -133,14 +133,13 @@ class MelBanks(nn.Module):
     def forward(self, x):
         xdtype = x.dtype
         x = x.float()
-        with torch.no_grad():
-            with torch.cuda.amp.autocast(enabled=False):
-                x = self.torchfbank(x)+1e-6
-                x = x.log()   
-                # print(f"spec : {x.size()}")
-                # x = x - torch.mean(x, dim=-1, keepdim=True)
-                x = self.spec_norm(x)
-                if self.training:
-                    for _ in range(self.num_apply_spec_aug):
-                        x = self.specaug(x)
+        with torch.no_grad(), torch.amp.autocast('cuda', enabled=False):
+            x = self.torchfbank(x)+1e-6
+            x = x.log()   
+            # print(f"spec : {x.size()}")
+            # x = x - torch.mean(x, dim=-1, keepdim=True)
+            x = self.spec_norm(x)
+            if self.training:
+                for _ in range(self.num_apply_spec_aug):
+                    x = self.specaug(x)
         return x.to(xdtype)
