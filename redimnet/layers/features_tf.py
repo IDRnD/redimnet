@@ -25,7 +25,6 @@ import torch
 import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
-from scipy.signal import windows
 
 def hz2mel(hz):
     """Convert a value in Hertz to Mels
@@ -151,6 +150,7 @@ class SpectralFeaturesTF(nn.Module):
             fft_mode = 'abs'
         self.fft_mode = fft_mode
         self.log_mels = log_mels
+        self.kwargs = kwargs
         self.build()
 
     def build(self):
@@ -158,15 +158,13 @@ class SpectralFeaturesTF(nn.Module):
 
         if self.window:
             if self.window == 'hamming':
-                self.window = windows.hamming(self.length)
+                self.window = np.hamming(self.length)
             elif self.window in ['hann', 'hanning']:
-                self.window = np.array([0.5 - 0.5 * (np.cos((2 * np.pi * l) / (self.length - 1) )) \
-                                        for l in range(self.length)])
+                self.window = np.hanning(self.length)
             elif self.window == 'sqrt_hann':
-                self.window = np.array([0.5 - 0.5 * (np.cos((2 * np.pi * l) / (self.length - 1) )) \
-                                        for l in range(self.length)]) ** 0.5
+                self.window = np.sqrt(np.hanning(self.length))
             elif self.window == 'kaiser':
-                self.window = windows.kaiser(self.length)
+                self.window = np.kaiser(self.length, self.kwargs.get('kaiser_beta', 5))
             else:
                 self.window = np.ones(self.length)
         self.window = self.window.astype("float32")
