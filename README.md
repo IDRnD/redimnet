@@ -2,6 +2,9 @@
 
 This is an official implementation of a neural network architecture presented in the paper [Reshape Dimensions Network for Speaker Recognition](https://arxiv.org/pdf/2407.18223).
 
+> [!IMPORTANT]
+> 📣 **[ReDimNet2](https://github.com/PalabraAI/redimnet2) is out (Interspeech 2026)** — successor architecture with time-pooled dimension reshaping: better accuracy/compute trade-off at every scale (B0–B6), pretrained weights and full training pipeline released. This repository remains the home of the original ReDimNet (Interspeech 2024) and its pretrained models.
+
 <p align="center">
 	<img src="assets/comparison_plot.png" alt="Sample"  width="1000">
 	<p align="center">
@@ -11,6 +14,7 @@ This is an official implementation of a neural network architecture presented in
 
 ## Update
 
+* 2026.07.01 [ReDimNet2](https://github.com/PalabraAI/redimnet2) released — successor architecture (Interspeech 2026), pretrained weights + training pipeline.
 * 2024.11.13 Refactored model's code. Added first pretrained models on `voxblink2` dataset, for more info please refer to [evaluation](EVALUATION.md) page.
 * 2024.07.15 Adding model builder and pretrained weights for: `b0`, `b1`, `b2`, `b3`, `b5`, `b6` model sizes.
 
