@@ -1,5 +1,10 @@
 # ReDimNet
 
+[![Papers with Code: VoxCeleb1-O (Clean)](https://paperswithcode.co/api/v1/papers/2407.18223/leaderboard-badge.svg?eval=24724&live=1)](https://paperswithcode.co/api/v1/papers/2407.18223/leaderboard-badge-link?eval=24724)
+[![Papers with Code: VoxCeleb1-E (Clean)](https://paperswithcode.co/api/v1/papers/2407.18223/leaderboard-badge.svg?eval=24744&live=1)](https://paperswithcode.co/api/v1/papers/2407.18223/leaderboard-badge-link?eval=24744)
+[![Papers with Code: VoxCeleb1-H (Clean)](https://paperswithcode.co/api/v1/papers/2407.18223/leaderboard-badge.svg?eval=24745&live=1)](https://paperswithcode.co/api/v1/papers/2407.18223/leaderboard-badge-link?eval=24745)
+[![Papers with Code: VOiCES Eval](https://paperswithcode.co/api/v1/papers/2407.18223/leaderboard-badge.svg?eval=24755&live=1)](https://paperswithcode.co/api/v1/papers/2407.18223/leaderboard-badge-link?eval=24755)
+
 This is an official implementation of a neural network architecture presented in the paper [Reshape Dimensions Network for Speaker Recognition](https://arxiv.org/pdf/2407.18223).
 
 > [!IMPORTANT]
